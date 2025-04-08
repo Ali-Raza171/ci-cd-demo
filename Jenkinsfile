@@ -4,32 +4,31 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Ali-Raza171/ci-cd-demo.git'
+                git 'https://github.com/Ali-Raza171/ci-cd-demo.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building the app...'
+                bat 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Starting the app...'
-                sh 'nohup npm start &'
+                bat 'echo Deploy stage here'
             }
         }
     }
