@@ -1,12 +1,12 @@
 pipeline {
     agent any
 
-    stage('Clone Code') {
-    steps {
-        git branch: 'main', url: 'https://github.com/Ali-Raza171/ci-cd-demo.git'
-    }
-}
-
+    stages {
+        stage('Clone Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Ali-Raza171/ci-cd-demo.git'
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
